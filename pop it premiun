@@ -4,38 +4,18 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         Section:NewButton("inf yeld"  , "inf yeld script", function()
             loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
         end)
+	
+Section:NewButton("Inf Jumps", "Enables Inf Jumps", function()
+    local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
 
-Section:NewButton("Safe Place for dupe", "On the sky", function()
-    Instance.new('Part',workspace)
-Local = game:GetService('Players').LocalPlayer
-Char  = Local.Character
-touched,tpdback = false, false
-Local.CharacterAdded:connect(function(char)
-   if script.Disabled ~= true then
-       wait(.25)
-       loc = Char.HumanoidRootPart.Position
-       Char:MoveTo(box.Position + Vector3.new(0,.5,0))
-   end
-end)
-game:GetService('UserInputService').InputBegan:connect(function(key)
-   if key.KeyCode == Enum.KeyCode.Equals then
-       if script.Disabled ~= true then
-           script.Disabled = true
-           print'you may re-execute'
-       end
-   end
-end)
-box = Instance.new('Part',workspace)
-box.Anchored = true
-box.CanCollide = true
-box.Size = Vector3.new(180,1,180)
-box.Position = Vector3.new(0,450907,0)
 
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0,450909,0)
-end)
-Section:NewButton("Go Back To Spawn" , "playerback", function()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(60,19,-267)
-end)
+
 
 
 game:GetService("StarterGui"):SetCore("SendNotification",{
