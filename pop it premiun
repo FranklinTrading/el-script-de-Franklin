@@ -5,14 +5,14 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
             loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
         end)
 	
-Section:NewButton("Inf Jumps", "Enables Inf Jumps", function()
-    local InfiniteJumpEnabled = true
+        Section:NewButton("Saltos infinitos", "activar saltos infinitos", function()
+             local InfiniteJumpEnabled = true
 game:GetService("UserInputService").JumpRequest:connect(function()
 	if InfiniteJumpEnabled then
 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
 	end
 end)
-end)
+
 
 
 
